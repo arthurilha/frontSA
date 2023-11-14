@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  periodo: FormGroup;
 
-  ngOnInit() {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    this.periodo = this.formBuilder.group({
+      dataInicio: ['', Validators.required],
+      dataFim: ['', Validators.required]
+    });
+  }
+
+
+    ngOnInit() {
   }
 
 }

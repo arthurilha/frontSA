@@ -1,34 +1,72 @@
 <div class="quadro">
-    <div class="container">
-      <div class="col-md-12 header">
+  <div class="container">
+    <div class="col-md-12 header">
 
-          <h6>Histórico Reembolso</h6>
+      <h6>Solicitações de Reembolso</h6>
 
-          <button class="btn btn-primary">Criar Reembolso</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Gerar Relatório
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Gerar Relatório</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h6>Escolha o periodo</h6>
+              <form [formGroup]="periodo">
+                <div class="col-md-12" style="display: flex;">
+                  <div class="col-md-5" style="margin: 5px;">
+                    <label for="inputText">Data Inicio</label>
+                    <input type="date" id="dataInicio" name="dataInicio" class="form-control" formControlName="dataInicio">
+                  </div>
+                  <div class="col-md-5"  style="margin: 5px;">
+                    <label for="inputText">Data Fim</label>
+                    <input type="date" id="dataFim" name="dataFim" class="form-control" formControlName="dataFim">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-primary">Visualizar</button>
+                </div>
+              </form>
+            </div>
 
+          </div>
+        </div>
       </div>
-      <div class="col-md-12">
-        <table class="table table-striped">
-          <thead>
-            <tr class="text-muted">
-              <th scope="col">N°</th>
-              <th scope="col">Funcionário</th>
-              <th scope="col">Valor</th>
-              <th scope="col">Opções</th>
-            </tr>
-          </thead>
-          <tbody >
-            <tr >
-              <th>1</th>
-              <td>José da silva</td>
-              <td>R$1.000,00</td>
-              <td>
-                <button class="btn btn-primary btp">Aprovar</button>
-                <button class="btn btn-danger btp">Reprovar</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+
+    </div>
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr class="text-muted">
+            <th scope="col">N°</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Motivo</th>
+            <th scope="col">Data</th>
+            <th scope="col">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <td>José da silva</td>
+            <td>R$1.000,00</td>
+            <td>Visita ao cliente</td>
+            <td>10/10/2023</td>
+            <td>
+              <button class="btn btn-primary btp">Aprovar</button>
+              <button class="btn btn-danger btp">Reprovar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
