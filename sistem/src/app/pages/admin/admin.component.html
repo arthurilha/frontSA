@@ -1,24 +1,29 @@
 <div class="quadro">
   <div class="container">
     <div class="col-md-12 header">
-
-      <h6>Solicitações de Reembolso</h6>
-
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Gerar Relatório
-      </button>
+      <div class="col-md-6" style="display: flex; align-items: center;">
+        <h6>Solicitações de Reembolso</h6>
+      </div>
+      <div class="col-md-6" style="display: flex; justify-content: end;">
+        <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Visualizar Relatório
+        </button>
+        <button type="button" class="btn btn-danger m-2" (click)="voltar()">
+          <i class="bi bi-box-arrow-left"></i>
+        </button>
+      </div>
       <!-- Modal -->
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">Gerar Relatório</h1>
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Visualizar Relatório</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <h6>Escolha o periodo</h6>
-              <form [formGroup]="periodo">
+              <form [formGroup]="periodo" (ngSubmit)="onSubmit()">
                 <div class="col-md-12" style="display: flex;">
                   <div class="col-md-5" style="margin: 5px;">
                     <label for="inputText">Data Inicio</label>

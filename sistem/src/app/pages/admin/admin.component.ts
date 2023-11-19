@@ -21,4 +21,18 @@ export class AdminComponent implements OnInit {
     ngOnInit() {
   }
 
+  voltar(){
+    this.router.navigate(['']);
+  }
+
+  onSubmit() {
+
+    if (this.periodo.valid) {
+      // Aqui você pode acessar os valores do formulário
+      console.log('Valores do formulário:', this.periodo.value);
+      // Adicione a lógica para enviar os dados para o servidor aqui
+    } else {
+      console.log('Formulário inválido. Por favor, verifique os campos.');
+    }
+  }
 }

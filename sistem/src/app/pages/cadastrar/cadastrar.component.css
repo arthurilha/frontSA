@@ -1,0 +1,30 @@
+.centered-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  margin: 0px 100px;
+}
+
+
+button{
+  width: 100%;
+}
+
+
+.inp{
+  margin: 20px 0px;
+}
+
+
+.cont1{
+  height: 100vh;
+  background-image: url('../../../assets/pexels-anna-nekrashevich-6801680.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cont2{
+  height: 100vh;
+  background-color: #e2e4e5;
+}

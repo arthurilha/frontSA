@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-6 cont2">
     <div class="row centered-container">
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <form [formGroup]="cadForm" (ngSubmit)="cadastrar()">
         <div class="col-md-12 inp" style="text-align: center;">
           <h3>Contabilidade S.A</h3>
         </div>
@@ -16,7 +16,7 @@
           </select>
         </div>
         <div class="col-md-12 inp">
-          <label for="inputText">Senha</label>
+          <label for="inputText">Usuário</label>
           <input type="text" id="username" name="username" class="form-control" formControlName="username">
         </div>
         <div class="col-md-12 inp">
@@ -24,12 +24,10 @@
           <input type="password" id="password" name="password" class="form-control" formControlName="password">
         </div>
         <div class="col-md-12 inp">
-          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!cadForm.valid">Cadastrar</button>
         </div>
       </form>
-      <div>
-        <button (click)="telaCadastro()" class="btn btn-success" >Criar Conta</button>
-      </div>
+
     </div>
   </div>
 </div>

@@ -1,0 +1,57 @@
+{
+  "cadastrarGerente": [
+    {
+      "id": 1,
+      "username": "teste",
+      "password": "123456"
+    },
+    {
+      "username": "teste1",
+      "password": "123456",
+      "id": 2
+    }
+  ],
+  "cadastrarFuncionario": [
+    {},
+    {
+      "id": 1,
+      "username": "teste",
+      "password": "123456"
+    },
+    {
+      "username": "teste",
+      "password": "123456",
+      "id": 2
+    }
+  ],
+  "Reembolso": [
+    {
+      "id": 1,
+      "valor": 600,
+      "motivo": "viagem",
+      "data": "10/02/2023",
+      "status": "Pendente"
+    },
+    {
+      "id": 2,
+      "valor": 100,
+      "motivo": "Hora Extra",
+      "data": "10/02/2023",
+      "status": "Aprovado"
+    },
+    {
+      "id": 3,
+      "valor": 400,
+      "motivo": "Compra",
+      "data": "10/04/2023",
+      "status": "Reprovado"
+    },
+    {
+      "id": "5",
+      "valor": "600,00",
+      "motivo": "Comprar",
+      "data": "2023-11-15",
+      "status": "pendente"
+    }
+  ]
+}

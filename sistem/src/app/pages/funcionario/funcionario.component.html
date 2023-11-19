@@ -2,11 +2,18 @@
   <div class="container">
     <div class="col-md-12 header">
 
-      <h6>Histórico Reembolso</h6>
+      <div class="col-md-6" style="display: flex; align-items: center;">
+        <h6>Histórico Reembolso</h6>
+      </div>
+      <div class="col-md-6" style="display: flex; justify-content: end;">
+        <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Criar Reembolso
+        </button>
+        <button type="button" class="btn btn-danger m-2" (click)="voltar()">
+          <i class="bi bi-box-arrow-left"></i>
+        </button>
+      </div>
 
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Criar Reembolso
-      </button>
       <!-- Modal -->
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -17,17 +24,17 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form [formGroup]="reembolso">
+              <form [formGroup]="reembolso" (ngSubmit)="onSubmit()">
                 <div class="col-md-12" style="display: flex;">
                     <label for="inputText">Nome: José da silva</label>
-                    <input type="text" id="nome" name="nome" class="form-control" formControlName="nome" style="display: none;">
+                    <input type="text" id="id" name="id" class="form-control" formControlName="id" style="display: none;">
                 </div>
                 <div class="col-md-12" style="display: flex;">
                   <div class="col-md-4" style="margin: 5px;">
                     <label for="inputText">Valor</label>
                     <input type="text" id="valor" name="valor" class="form-control" formControlName="valor">
                   </div>
-                  <div class="col-md-4" style="margin: 5px;">
+                  <div class="col-md-3" style="margin: 5px;">
                     <label for="inputText">Motivo</label>
                     <select id="motivo" name="motivo" class="form-control" formControlName="motivo" placeholder="Selecione um motivo">
                       <option value="Viagem">Viagem</option>
@@ -36,7 +43,7 @@
                       <option value="Hora Extra">Refeições</option>
                     </select>
                   </div>
-                  <div class="col-md-3" style="margin: 5px;">
+                  <div class="col-md-4" style="margin: 5px;">
                     <label for="inputText">Data</label>
                     <input type="date" id="data" name="data" class="form-control" formControlName="data">
                   </div>
@@ -55,24 +62,25 @@
 
     </div>
     <div class="col-md-12">
-      <table class="table table-striped">
+      <table class="table table-striped" >
         <thead>
           <tr class="text-muted">
             <th scope="col">N°</th>
-            <th scope="col">Nome</th>
             <th scope="col">Valor</th>
             <th scope="col">Motivo</th>
             <th scope="col">Data</th>
+            <th scope="col">Status</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let item of dados">
           <tr>
-            <th>1</th>
-            <td>José da silva</td>
-            <td>R$1.000,00</td>
-            <td>Visita ao cliente</td>
-            <td>10/10/2023</td>
+            <th>{{ item.id || "Nenhum Reembolso Solicitado"}}</th>
+            <td>{{ item.valor }}</td>
+            <td>{{ item.motivo }}</td>
+            <td>{{ item.data }}</td>
+            <td>{{ item.status }}</td>
           </tr>
+
         </tbody>
       </table>
     </div>
