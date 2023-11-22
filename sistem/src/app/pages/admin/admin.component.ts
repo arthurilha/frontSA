@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { criaReembolso } from 'src/app/models/criaReembolso';
 import { ReembolsoService } from 'src/app/service/reembolso.service';
 @Component({
   selector: 'app-admin',
@@ -30,7 +31,33 @@ export class AdminComponent implements OnInit {
     })
   }
 
+  aprovaReembolso(item: any){
+    const attReb : any ={
+      id: item,
+      'status': 'Aprovado',
+    }
+
+    this.reb.patchReembolsoA(attReb).subscribe((updateReb) =>{
+      location.reload();
+      console.log(updateReb)
+    })
+  }
+
+  reprovaReembolso(item: any){
+    const attReb : any ={
+      id: item,
+      'status': 'Reprovado',
+    }
+
+    this.reb.patchReembolsoR(attReb).subscribe((updateReb) =>{
+      location.reload();
+      console.log(updateReb)
+    })
+  }
+
+
   voltar(){
+    localStorage.clear();
     this.router.navigate(['']);
   }
 

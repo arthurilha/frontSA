@@ -26,8 +26,8 @@
             <div class="modal-body">
               <form [formGroup]="reembolso" (ngSubmit)="onSubmit()">
                 <div class="col-md-12" style="display: flex;">
-                    <label for="inputText">Nome: José da silva</label>
-                    <input type="text" id="id" name="id" class="form-control" formControlName="id" style="display: none;">
+                    <label for="inputText">Nome: {{nome}}</label>
+                    <input type="text" id="id" name="id" class="form-control" formControlName="id" style="display: none;" >
                 </div>
                 <div class="col-md-12" style="display: flex;">
                   <div class="col-md-4" style="margin: 5px;">

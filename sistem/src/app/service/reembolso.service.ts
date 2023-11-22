@@ -21,4 +21,10 @@ export class ReembolsoService {
   public postReembolso(newReembolso : criaReembolso ):Observable<criaReembolso>{
     return this.httpClient.post<criaReembolso>(`${environment.api}reembolso`, newReembolso)
   }
+  public patchReembolsoA(newReembolso : criaReembolso ):Observable<criaReembolso>{
+    return this.httpClient.patch<criaReembolso>(`${environment.api}reembolso/${newReembolso.id}`, newReembolso)
+  }
+  public patchReembolsoR(newReembolso : criaReembolso ):Observable<criaReembolso>{
+    return this.httpClient.patch<criaReembolso>(`${environment.api}reembolso/${newReembolso.id}`, newReembolso)
+  }
 }

@@ -13,9 +13,10 @@ export class FuncionarioComponent implements OnInit {
   dados: any[] = [];
   dados2: any;
   id :any;
+  nome:any;
   constructor(private formBuilder: FormBuilder, private router: Router, private reb : ReembolsoService) {
     this.reembolso = this.formBuilder.group({
-      id: [this.id, Validators.required],
+      id: ['8', Validators.required],
       valor: ['', Validators.required],
       motivo: ['', Validators.required],
       data: ['', Validators.required],
@@ -26,7 +27,9 @@ export class FuncionarioComponent implements OnInit {
 
   ngOnInit() {
    this.id = localStorage.getItem('id');
+   this.nome = localStorage.getItem('user');
    console.log('meu id '+ this.id)
+   console.log('meu user '+ this.nome)
       this.obterTodos();
       this.obterUm();
 
@@ -34,6 +37,7 @@ export class FuncionarioComponent implements OnInit {
 
 
   voltar(){
+    localStorage.clear();
     this.router.navigate(['']);
   }
 
@@ -55,7 +59,7 @@ export class FuncionarioComponent implements OnInit {
       const dados = this.reembolso.value;
       console.log('Valores do formulário:',dados);
       this.reb.postReembolso(dados).subscribe((newReembolso)=>{
-        this.router.navigate(['/funcionario']);
+        location.reload();
         })
     } else {
       console.log('falha ao solicitar reembolso');

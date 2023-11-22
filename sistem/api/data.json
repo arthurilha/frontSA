@@ -15,7 +15,6 @@
       "password": "123456",
       "id": 3
     }
-
   ],
   "cadastrarFuncionario": [
     {},
@@ -41,14 +40,12 @@
     }
   ],
   "Reembolso": [
-
-    
     {
       "id": 1,
       "valor": 600,
       "motivo": "viagem",
       "data": "10/02/2023",
-      "status": "Pendente"
+      "status": "Aprovado"
     },
     {
       "id": 2,
@@ -65,18 +62,25 @@
       "status": "Reprovado"
     },
     {
-      "id": "5",
+      "id": "4",
       "valor": "600,00",
       "motivo": "Comprar",
       "data": "2023-11-15",
-      "status": "Pendente"
+      "status": "Aprovado"
     },
     {
       "id": "7",
       "valor": "10.000,00",
       "motivo": "Viagem",
       "data": "2023-11-22",
-      "status": "Pendente"
+      "status": "Reprovado"
+    },
+    {
+      "id": "8",
+      "valor": "10.000,00",
+      "motivo": "Viagem",
+      "data": "2023-11-24",
+      "status": "pendente"
     }
   ]
 }

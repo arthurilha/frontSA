@@ -36,10 +36,11 @@ export class LoginComponent implements OnInit {
 
         this.log.getLoginAdmin().subscribe(
           (success) => {
-            console.log(success)
             for(let i=0; i < success.length; i++){
               if(dados.username === success[i].username && dados.password === success[i].password){
+                console.log(success[i].username )
                 localStorage.setItem('id', success[i].id);
+                localStorage.setItem('user', success[i].username);
                 this.router.navigate(['/admin']);
               }else{
                 console.log('dados inválidos')
@@ -52,9 +53,16 @@ export class LoginComponent implements OnInit {
         delete dados.tipoUser;
         this.log.getLoginFunc().subscribe(
           (success) =>{
-            console.log(success)
-            this.router.navigate(['/funcionario']);
-
+            for(let i=0; i < success.length; i++){
+              if(dados.username === success[i].username && dados.password === success[i].password){
+                console.log(success[i].username )
+                localStorage.setItem('id', success[i].id);
+                localStorage.setItem('user', success[i].username);
+                this.router.navigate(['/funcionario']);
+              }else{
+                console.log('dados inválidos')
+              }
+            }
         },)
       }
     }

@@ -65,8 +65,8 @@
             <td>{{ item.data }}</td>
             <td *ngIf="item.status !== 'Pendente'" style="padding-left: 20px;">{{ item.status }}</td>
             <td *ngIf="item.status == 'Pendente'">
-              <button class="btn btn-primary btp">Aprovar</button>
-              <button class="btn btn-danger btp">Reprovar</button>
+              <button class="btn btn-primary btp" (click)="aprovaReembolso(item.id)">Aprovar</button>
+              <button class="btn btn-danger btp" (click)="reprovaReembolso(item.id)">Reprovar</button>
             </td>
           </tr>
 
