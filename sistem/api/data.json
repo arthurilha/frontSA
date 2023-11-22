@@ -9,7 +9,13 @@
       "username": "teste1",
       "password": "123456",
       "id": 2
+    },
+    {
+      "username": "teste2",
+      "password": "123456",
+      "id": 3
     }
+
   ],
   "cadastrarFuncionario": [
     {},
@@ -22,9 +28,21 @@
       "username": "teste",
       "password": "123456",
       "id": 2
+    },
+    {
+      "username": "teste",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "username": "teste",
+      "password": "123456",
+      "id": 4
     }
   ],
   "Reembolso": [
+
+    
     {
       "id": 1,
       "valor": 600,
@@ -51,7 +69,14 @@
       "valor": "600,00",
       "motivo": "Comprar",
       "data": "2023-11-15",
-      "status": "pendente"
+      "status": "Pendente"
+    },
+    {
+      "id": "7",
+      "valor": "10.000,00",
+      "motivo": "Viagem",
+      "data": "2023-11-22",
+      "status": "Pendente"
     }
   ]
 }

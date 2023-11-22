@@ -33,17 +33,24 @@ export class LoginComponent implements OnInit {
       if (this.loginForm.value.tipoUser === "Admin"){
         const dados = this.loginForm.value;
         delete dados.tipoUser;
-        this.log.getLoginAdmin(dados).subscribe(
-          (success) =>{
-            console.log(success)
-            this.router.navigate(['/admin']);
 
-        },)
+        this.log.getLoginAdmin().subscribe(
+          (success) => {
+            console.log(success)
+            for(let i=0; i < success.length; i++){
+              if(dados.username === success[i].username && dados.password === success[i].password){
+                localStorage.setItem('id', success[i].id);
+                this.router.navigate(['/admin']);
+              }else{
+                console.log('dados inválidos')
+              }
+            }
+          })
       }
       if (this.loginForm.value.tipoUser === "Funcionário"){
         const dados = this.loginForm.value;
         delete dados.tipoUser;
-        this.log.getLoginFunc(dados).subscribe(
+        this.log.getLoginFunc().subscribe(
           (success) =>{
             console.log(success)
             this.router.navigate(['/funcionario']);

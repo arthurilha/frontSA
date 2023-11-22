@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ReembolsoService } from 'src/app/service/reembolso.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -9,8 +10,8 @@ import { Router } from '@angular/router';
 export class AdminComponent implements OnInit {
 
   periodo: FormGroup;
-
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  dados: any[] = [];
+  constructor(private formBuilder: FormBuilder, private router: Router, private reb : ReembolsoService) {
     this.periodo = this.formBuilder.group({
       dataInicio: ['', Validators.required],
       dataFim: ['', Validators.required]
@@ -19,6 +20,14 @@ export class AdminComponent implements OnInit {
 
 
     ngOnInit() {
+      this.obterTodos();
+  }
+
+  obterTodos(){
+    this.reb.getReembolso().subscribe((reembolsos) => {
+      this.dados = reembolsos;
+      console.log(reembolsos)
+    })
   }
 
   voltar(){

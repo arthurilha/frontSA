@@ -72,13 +72,13 @@
             <th scope="col">Status</th>
           </tr>
         </thead>
-        <tbody *ngFor="let item of dados">
+        <tbody>
           <tr>
-            <th>{{ item.id || "Nenhum Reembolso Solicitado"}}</th>
-            <td>{{ item.valor }}</td>
-            <td>{{ item.motivo }}</td>
-            <td>{{ item.data }}</td>
-            <td>{{ item.status }}</td>
+            <th>{{ dados2.id || "Nenhum Reembolso Solicitado"}}</th>
+            <td>{{ dados2.valor }}</td>
+            <td>{{ dados2.motivo }}</td>
+            <td>{{ dados2.data }}</td>
+            <td>{{ dados2.status }}</td>
           </tr>
 
         </tbody>

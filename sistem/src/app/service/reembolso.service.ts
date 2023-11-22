@@ -15,9 +15,10 @@ export class ReembolsoService {
   public getReembolso():Observable<criaReembolso[]>{
     return this.httpClient.get<criaReembolso[]>(`${environment.api}reembolso`)
   }
-
+  public getReembolsoId(id : number):Observable<criaReembolso>{
+    return this.httpClient.get<criaReembolso>(`${environment.api}reembolso/${id}`)
+  }
   public postReembolso(newReembolso : criaReembolso ):Observable<criaReembolso>{
     return this.httpClient.post<criaReembolso>(`${environment.api}reembolso`, newReembolso)
-
   }
 }

@@ -47,29 +47,29 @@
 
     </div>
     <div class="col-md-12">
-      <table class="table table-striped">
+      <table class="table table-striped" >
         <thead>
           <tr class="text-muted">
             <th scope="col">N°</th>
-            <th scope="col">Nome</th>
             <th scope="col">Valor</th>
             <th scope="col">Motivo</th>
             <th scope="col">Data</th>
-            <th scope="col">Opções</th>
+            <th scope="col">Status</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let item of dados">
           <tr>
-            <th>1</th>
-            <td>José da silva</td>
-            <td>R$1.000,00</td>
-            <td>Visita ao cliente</td>
-            <td>10/10/2023</td>
-            <td>
+            <th>{{ item.id || "Nenhum Reembolso Solicitado"}}</th>
+            <td>{{ item.valor }}</td>
+            <td>{{ item.motivo }}</td>
+            <td>{{ item.data }}</td>
+            <td *ngIf="item.status !== 'Pendente'" style="padding-left: 20px;">{{ item.status }}</td>
+            <td *ngIf="item.status == 'Pendente'">
               <button class="btn btn-primary btp">Aprovar</button>
               <button class="btn btn-danger btp">Reprovar</button>
             </td>
           </tr>
+
         </tbody>
       </table>
     </div>

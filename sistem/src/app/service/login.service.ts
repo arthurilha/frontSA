@@ -12,13 +12,13 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getLoginAdmin(requestLogin: login):Observable<login>{
-    return this.httpClient.post<login>(`${environment.api}cadastrarGerente`, requestLogin )
+  public getLoginAdmin():Observable<any>{
+    return this.httpClient.get<any>(`${environment.api}cadastrarGerente` )
 }
 
 
-public getLoginFunc(requestLogin: login):Observable<login>{
-  return this.httpClient.post<login>(`${environment.api}cadastrarFuncionario`, requestLogin )
+public getLoginFunc():Observable<any>{
+  return this.httpClient.get<any>(`${environment.api}cadastrarFuncionario`)
 }
 
 }
