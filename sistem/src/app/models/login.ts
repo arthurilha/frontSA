@@ -1,5 +1,5 @@
 export interface login{
-  id:number
-  username:string;
-  password:string;
+  id:any;
+  nome:string;
+  senha:string;
 }

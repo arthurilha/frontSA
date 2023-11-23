@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private log: LoginService) {
     this.loginForm = this.formBuilder.group({
       tipoUser: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      nome: ['', Validators.required],
+      senha: ['', Validators.required]
     });
   }
 
@@ -34,35 +34,21 @@ export class LoginComponent implements OnInit {
         const dados = this.loginForm.value;
         delete dados.tipoUser;
 
-        this.log.getLoginAdmin().subscribe(
+        this.log.getLoginAdmin(dados.nome,dados.senha).subscribe(
           (success) => {
-            for(let i=0; i < success.length; i++){
-              if(dados.username === success[i].username && dados.password === success[i].password){
-                console.log(success[i].username )
-                localStorage.setItem('id', success[i].id);
-                localStorage.setItem('user', success[i].username);
-                this.router.navigate(['/admin']);
-              }else{
-                console.log('dados inválidos')
-              }
-            }
+            this.router.navigate(['/admin'])
+            localStorage.setItem('id',success.id)
+            localStorage.setItem('nome',success.nome)
           })
       }
       if (this.loginForm.value.tipoUser === "Funcionário"){
         const dados = this.loginForm.value;
         delete dados.tipoUser;
-        this.log.getLoginFunc().subscribe(
+        this.log.getLoginFunc(dados.nome,dados.senha).subscribe(
           (success) =>{
-            for(let i=0; i < success.length; i++){
-              if(dados.username === success[i].username && dados.password === success[i].password){
-                console.log(success[i].username )
-                localStorage.setItem('id', success[i].id);
-                localStorage.setItem('user', success[i].username);
-                this.router.navigate(['/funcionario']);
-              }else{
-                console.log('dados inválidos')
-              }
-            }
+            this.router.navigate(['/funcionario']);
+            localStorage.setItem('id',success.id)
+            localStorage.setItem('nome',success.nome)
         },)
       }
     }

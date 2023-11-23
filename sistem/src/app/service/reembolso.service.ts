@@ -14,22 +14,25 @@ export class ReembolsoService {
   constructor(private httpClient: HttpClient) { }
 
   public getReembolso():Observable<criaReembolso[]>{
-    return this.httpClient.get<criaReembolso[]>(`${environment.api}reembolso`)
+    return this.httpClient.get<criaReembolso[]>(`${environment.api}funcionario/reembolso`)
+  }
+  public getReembolsoTodos():Observable<criaReembolso[]>{
+    return this.httpClient.get<criaReembolso[]>(`${environment.api}gerente/reembolso`)
   }
   public getReembolsoId(id : number):Observable<criaReembolso>{
-    return this.httpClient.get<criaReembolso>(`${environment.api}reembolso/${id}`)
+    return this.httpClient.get<criaReembolso>(`${environment.api}funcionario/reembolso/${id}`)
   }
   public getRelatorio(inicio: number, fim: number): Observable<relatorio> {
-    const body = { inicio, fim };
-    return this.httpClient.post<relatorio>(`${environment.api}reembolso/relatorio`, body);
+    const params = { inicio, fim };
+    return this.httpClient.get<relatorio>(`${environment.api}gerente/reembolso/relatorio`, {params});
   }
   public postReembolso(newReembolso : criaReembolso ):Observable<criaReembolso>{
-    return this.httpClient.post<criaReembolso>(`${environment.api}reembolso`, newReembolso)
+    return this.httpClient.post<criaReembolso>(`${environment.api}funcionario/reembolso`, newReembolso)
   }
   public patchReembolsoA(newReembolso : criaReembolso ):Observable<criaReembolso>{
-    return this.httpClient.patch<criaReembolso>(`${environment.api}reembolso/${newReembolso.id}`, newReembolso)
+    return this.httpClient.patch<criaReembolso>(`${environment.api}gerente/reembolso/aprovar/${newReembolso.id}`, newReembolso)
   }
   public patchReembolsoR(newReembolso : criaReembolso ):Observable<criaReembolso>{
-    return this.httpClient.patch<criaReembolso>(`${environment.api}reembolso/${newReembolso.id}`, newReembolso)
+    return this.httpClient.patch<criaReembolso>(`${environment.api}gerente/reembolso/reprovar/${newReembolso.id}`, newReembolso)
   }
 }

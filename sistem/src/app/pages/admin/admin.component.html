@@ -54,7 +54,7 @@
             <th scope="col">Valor</th>
             <th scope="col">Motivo</th>
             <th scope="col">Data</th>
-            <th scope="col">Status</th>
+            <th scope="col">Estado</th>
           </tr>
         </thead>
         <tbody *ngFor="let item of dados">
@@ -62,9 +62,9 @@
             <th>{{ item.id || "Nenhum Reembolso Solicitado"}}</th>
             <td>{{ item.valor }}</td>
             <td>{{ item.motivo }}</td>
-            <td>{{ item.data }}</td>
-            <td *ngIf="item.status !== 'Pendente'" style="padding-left: 20px;">{{ item.status }}</td>
-            <td *ngIf="item.status == 'Pendente'">
+            <td>{{ item.dataReembolso }}</td>
+            <td *ngIf="item.estado !== 'PENDENTE'" style="padding-left: 20px;">{{ item.estado }}</td>
+            <td *ngIf="item.estado == 'PENDENTE'">
               <button class="btn btn-primary btp" (click)="aprovaReembolso(item.id)">Aprovar</button>
               <button class="btn btn-danger btp" (click)="reprovaReembolso(item.id)">Reprovar</button>
             </td>

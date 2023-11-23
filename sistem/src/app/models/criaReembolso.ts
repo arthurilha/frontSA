@@ -1,8 +1,8 @@
 export interface criaReembolso{
-
-  id: number;
+  funcionario: number;
   valor: number;
   motivo: string;
-  data: string;
-  status:string;
+  dataReembolso: string;
+  estado?: string;
+  id?: number
 }

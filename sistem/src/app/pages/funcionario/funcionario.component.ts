@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { criaReembolso } from 'src/app/models/criaReembolso';
 import { ReembolsoService } from 'src/app/service/reembolso.service';
 
 @Component({
@@ -16,20 +17,19 @@ export class FuncionarioComponent implements OnInit {
   nome:any;
   constructor(private formBuilder: FormBuilder, private router: Router, private reb : ReembolsoService) {
     this.reembolso = this.formBuilder.group({
-      id: ['17', Validators.required],
+      funcionario:[1, Validators.required],
       valor: ['', Validators.required],
       motivo: ['', Validators.required],
-      data: ['', Validators.required],
-      status: ['Pendente', Validators.required]
+      dataReembolso: ['', Validators.required],
     });
   }
 
 
   ngOnInit() {
    this.id = localStorage.getItem('id');
-   this.nome = localStorage.getItem('user');
+   this.nome = localStorage.getItem('nome');
    console.log('meu id '+ this.id)
-   console.log('meu user '+ this.nome)
+   console.log('meu nome '+ this.nome)
       this.obterTodos();
       this.obterUm();
 
@@ -50,11 +50,15 @@ export class FuncionarioComponent implements OnInit {
   obterUm(){
     this.reb.getReembolsoId(this.id).subscribe((reembolsosId) => {
       console.log(reembolsosId)
-      this.dados2 = reembolsosId;
+      // this.dados2 = reembolsosId.find((reembolso: criaReembolso) => {
+      //   return reembolso;
+      // });
+      this.dados2 = reembolsosId
     })
   }
   onSubmit() {
-
+    this.reembolso.value.funcionario = this.id
+    console.log(this.reembolso.value)
     if (this.reembolso.valid) {
       const dados = this.reembolso.value;
       console.log('Valores do formulário:',dados);

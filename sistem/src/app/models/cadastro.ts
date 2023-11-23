@@ -1,5 +1,4 @@
 export interface cadastro{
-  id:number
-  username:string;
-  password:string;
+  nome:string;
+  senha:string;
 }

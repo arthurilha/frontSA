@@ -25,18 +25,15 @@ export class AdminComponent implements OnInit {
   }
 
   obterTodos(){
-    this.reb.getReembolso().subscribe((reembolsos) => {
+    this.reb.getReembolsoTodos().subscribe((reembolsos) => {
       this.dados = reembolsos;
       console.log(reembolsos)
     })
   }
 
-
-
   aprovaReembolso(item: any){
     const attReb : any ={
       id: item,
-      'status': 'Aprovado',
     }
 
     this.reb.patchReembolsoA(attReb).subscribe((updateReb) =>{
@@ -48,7 +45,6 @@ export class AdminComponent implements OnInit {
   reprovaReembolso(item: any){
     const attReb : any ={
       id: item,
-      'status': 'Reprovado',
     }
 
     this.reb.patchReembolsoR(attReb).subscribe((updateReb) =>{
@@ -70,7 +66,6 @@ export class AdminComponent implements OnInit {
       console.log('Valores do formulário:', this.periodo.value);
       this.reb.getRelatorio(this.periodo.value.dataInicio,this.periodo.value.dataFim).subscribe((relatorio)=>{
         console.log(relatorio);
-        location.reload();
       })
       // Adicione a lógica para enviar os dados para o servidor aqui
     } else {

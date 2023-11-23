@@ -13,12 +13,12 @@ export class CadastroService {
   constructor(private httpClient: HttpClient) { }
 
   public postCadGerente(newUser : cadastro ):Observable<cadastro>{
-    return this.httpClient.post<cadastro>(`${environment.api}cadastrarGerente`, newUser)
+    return this.httpClient.post<cadastro>(`${environment.api}gerente/cadastro`, newUser)
 
   }
 
   public postCadFuncionario(newUser : cadastro ):Observable<cadastro>{
-    return this.httpClient.post<cadastro>(`${environment.api}cadastrarFuncionario`, newUser)
+    return this.httpClient.post<cadastro>(`${environment.api}funcionario/cadastro`, newUser)
 
   }
 }

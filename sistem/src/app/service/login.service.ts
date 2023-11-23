@@ -12,13 +12,16 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getLoginAdmin():Observable<any>{
-    return this.httpClient.get<any>(`${environment.api}cadastrarGerente` )
+public getLoginAdmin(nome: string, senha: string): Observable<login> {
+  const params = { nome, senha };
+  
+  return this.httpClient.get<login>(`${environment.api}gerente/login`, { params });
 }
 
-
-public getLoginFunc():Observable<any>{
-  return this.httpClient.get<any>(`${environment.api}cadastrarFuncionario`)
+public getLoginFunc(nome: string, senha: string): Observable<login> {
+  const params = { nome, senha };
+  
+  return this.httpClient.get<login>(`${environment.api}funcionario/login`, { params });
 }
 
 }

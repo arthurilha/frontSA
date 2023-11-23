@@ -17,8 +17,8 @@ export class CadastrarComponent implements OnInit {
     this.cadForm = this.formBuilder.group({
       id: [1, Validators.required],
       tipoUser: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      nome: ['', Validators.required],
+      senha: ['', Validators.required]
     });
   }
 
@@ -30,8 +30,10 @@ export class CadastrarComponent implements OnInit {
     if (this.cadForm.valid) {
       console.log('Valores do formulário:',this.cadForm.value);
       if (this.cadForm.value.tipoUser === "Admin"){
+        console.log("adentrou")
         const dados = this.cadForm.value;
         delete dados.tipoUser;
+        console.log(dados)
         this.cad.postCadGerente(dados).subscribe((User)=>{
             this.router.navigate(['']);
         })
