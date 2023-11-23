@@ -16,11 +16,11 @@ export class FuncionarioComponent implements OnInit {
   nome:any;
   constructor(private formBuilder: FormBuilder, private router: Router, private reb : ReembolsoService) {
     this.reembolso = this.formBuilder.group({
-      id: ['8', Validators.required],
+      id: ['17', Validators.required],
       valor: ['', Validators.required],
       motivo: ['', Validators.required],
       data: ['', Validators.required],
-      status: ['pendente', Validators.required]
+      status: ['Pendente', Validators.required]
     });
   }
 

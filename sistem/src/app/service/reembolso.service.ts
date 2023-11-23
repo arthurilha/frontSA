@@ -1,6 +1,7 @@
 import { criaReembolso } from './../models/criaReembolso';
+import { relatorio } from './../models/relatorio';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
@@ -17,6 +18,10 @@ export class ReembolsoService {
   }
   public getReembolsoId(id : number):Observable<criaReembolso>{
     return this.httpClient.get<criaReembolso>(`${environment.api}reembolso/${id}`)
+  }
+  public getRelatorio(inicio: number, fim: number): Observable<relatorio> {
+    const body = { inicio, fim };
+    return this.httpClient.post<relatorio>(`${environment.api}reembolso/relatorio`, body);
   }
   public postReembolso(newReembolso : criaReembolso ):Observable<criaReembolso>{
     return this.httpClient.post<criaReembolso>(`${environment.api}reembolso`, newReembolso)

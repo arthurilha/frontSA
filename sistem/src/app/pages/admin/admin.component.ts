@@ -31,6 +31,8 @@ export class AdminComponent implements OnInit {
     })
   }
 
+
+
   aprovaReembolso(item: any){
     const attReb : any ={
       id: item,
@@ -66,6 +68,10 @@ export class AdminComponent implements OnInit {
     if (this.periodo.valid) {
       // Aqui você pode acessar os valores do formulário
       console.log('Valores do formulário:', this.periodo.value);
+      this.reb.getRelatorio(this.periodo.value.dataInicio,this.periodo.value.dataFim).subscribe((relatorio)=>{
+        console.log(relatorio);
+        location.reload();
+      })
       // Adicione a lógica para enviar os dados para o servidor aqui
     } else {
       console.log('Formulário inválido. Por favor, verifique os campos.');

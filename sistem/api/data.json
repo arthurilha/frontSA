@@ -80,7 +80,14 @@
       "valor": "10.000,00",
       "motivo": "Viagem",
       "data": "2023-11-24",
-      "status": "pendente"
+      "status": "Pendente"
+    },
+    {
+      "id": "17",
+      "valor": "10.000,00",
+      "motivo": "Comprar",
+      "data": "2023-02-12",
+      "status": "Pendente"
     }
   ]
 }
