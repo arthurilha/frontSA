@@ -17,7 +17,6 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
     PagesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-
   ]
 })
 export class PagesModule { }

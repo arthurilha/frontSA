@@ -22,9 +22,9 @@ export class ReembolsoService {
   public getReembolsoId(id : number):Observable<criaReembolso>{
     return this.httpClient.get<criaReembolso>(`${environment.api}funcionario/reembolso/${id}`)
   }
-  public getRelatorio(inicio: number, fim: number): Observable<relatorio> {
+  public getRelatorio(inicio: number, fim: number): Observable<any> {
     const params = { inicio, fim };
-    return this.httpClient.get<relatorio>(`${environment.api}gerente/reembolso/relatorio`, {params});
+    return this.httpClient.get<any>(`${environment.api}gerente/reembolso/relatorio`, {params});
   }
   public postReembolso(newReembolso : criaReembolso ):Observable<criaReembolso>{
     return this.httpClient.post<criaReembolso>(`${environment.api}funcionario/reembolso`, newReembolso)
